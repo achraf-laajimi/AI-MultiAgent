@@ -1,0 +1,239 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "hi", "hello", "hey", "hi there",
+                "good morning", "good afternoon", "good evening",
+                "howdy", "what's up", "greetings",
+                "hey there", "morning", "what's good", "hiya",
+                "good day", "hello friend", "hey mate",
+                "how are you doing", "what's happening",
+                "long time no see", "nice to see you"
+            ],
+            "responses": [
+                "Hello! How can I assist you today?",
+                "Hi there! What can I do for you?",
+                "Greetings! How may I help?",
+                "Hey! What's on your mind?",
+                "Good to see you! What's up?"
+            ],
+            "context": ""
+        },
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "bye", "goodbye", "see you", "see ya",
+                "later", "take care", "i'm leaving",
+                "catch you later", "adios", "bye bye",
+                "until next time", "peace out", "i'm out",
+                "farewell", "so long", "take it easy",
+                "gotta go", "see you around",
+                "talk to you later", "have a good one"
+            ],
+            "responses": [
+                "Goodbye! Have a wonderful day!",
+                "See you soon! Come back anytime.",
+                "Take care! I'll be here if you need me.",
+                "Catch you later!",
+                "Bye for now!"
+            ],
+            "context": ""
+        },
+        {
+            "tag": "thanks",
+            "patterns": [
+                "thanks", "thank you", "thanks a lot",
+                "appreciate it", "much obliged", "cheers",
+                "you're awesome", "i owe you one",
+                "thank you so much", "grateful for that",
+                "thanks heaps", "many thanks", "big thanks",
+                "thanks a bunch", "i appreciate it",
+                "that's very kind", "you're the best"
+            ],
+            "responses": [
+                "You're very welcome!",
+                "Happy to help!",
+                "My pleasure! Is there anything else?",
+                "Glad I could assist!",
+                "No problem at all!"
+            ],
+            "context": ""
+        },
+        {
+            "tag": "jokes",
+            "patterns": [
+                "tell me a joke", "make me laugh",
+                "do you know any jokes", "i need a laugh",
+                "say something funny", "give me a chuckle",
+                "what's a funny story", "tell a joke",
+                "crack a joke", "funny one please",
+                "make it funny", "got a good joke",
+                "i want humor", "tell me something hilarious",
+                "joke time", "make me smile",
+                "lighten the mood", "cheer me up"
+            ],
+            "responses": [
+                "Why don't scientists trust atoms? Because they make up everything!",
+                "I told my wife she was drawing her eyebrows too high. She looked surprised.",
+                "What do you call fake spaghetti? An impasta!",
+                "Why did the scarecrow win an award? Because he was outstanding in his field!",
+                "Why can't basketball players go on vacation? Because they would get called for traveling!",
+                "What do programmers prefer? Dark mode, because the light attracts bugs."
+            ],
+            "context": "jokes"
+        },
+        {
+            "tag": "identity",
+            "patterns": [
+                "who are you", "what are you",
+                "introduce yourself", "your name",
+                "are you human", "are you a bot",
+                "who is this", "what's your name",
+                "are you an ai", "tell me about yourself",
+                "who am i talking to", "what do you do",
+                "are you real", "who made you",
+                "what are you called", "tell me who you are",
+                "what kind of ai are you", "are you a chatbot"
+            ],
+            "responses": [
+                "I'm GRACE, your AI assistant created by Ashraf Laajimi in 2025.",
+                "I'm GRACE - a digital assistant here to help you with anything you need!",
+                "I'm an AI assistant designed to make your life easier. Call me GRACE!",
+                "GRACE here, your friendly AI built by Ashraf Laajimi!",
+                "I'm GRACE, an AI ready to answer your questions!"
+            ],
+            "context": ""
+        },
+        {
+            "tag": "help",
+            "patterns": [
+                "can you help me", "i need assistance",
+                "help me", "can you assist me",
+                "what can you do", "show me what you can do",
+                "i need help", "what are your capabilities",
+                "assist me please", "how can you help",
+                "what can you assist with", "i need some help",
+                "can you do something for me", "help me out",
+                "what's your function", "give me a hand",
+                "how does this work", "can you guide me"
+            ],
+            "responses": [
+                "Of course! I can help with a variety of tasks. Just ask!",
+                "I'm here to assist you. What do you need help with?",
+                "Let me know what you need, and I'll do my best to assist!",
+                "Happy to help! What's up?",
+                "I'm all ears—how can I assist you?"
+            ],
+            "context": ""
+        },
+        {
+            "tag": "creator",
+            "patterns": [
+                "who made you", "who created you",
+                "who programmed you", "who designed you",
+                "who is your developer", "who built you",
+                "who's your creator", "who coded you",
+                "who's behind you", "who brought you to life",
+                "who's your maker", "who developed you",
+                "who's the brain behind you", "who put you together",
+                "who is responsible for you", "who is ashraf laajimi"
+            ],
+            "responses": [
+                "I was created by Ashraf Laajimi in 2024.",
+                "My developer is Ashraf Laajimi - a talented programmer!",
+                "I'm the brainchild of Ashraf Laajimi.",
+                "Ashraf Laajimi brought me to life in 2024!",
+                "I'm GRACE, crafted by Ashraf Laajimi!"
+            ],
+            "context": ""
+        },
+        {
+            "tag": "compliment",
+            "patterns": [
+                "you're smart", "you're awesome",
+                "you're the best", "i like you",
+                "you're amazing", "good job",
+                "well done", "you're great",
+                "awesome work", "you rock",
+                "you're fantastic", "great job",
+                "you're so cool", "nice work",
+                "you're incredible", "keep it up",
+                "you're helpful", "good answer",
+                "that was perfect", "excellent"
+            ],
+            "responses": [
+                "Thank you! That means a lot coming from you!",
+                "You're making me blush! Thanks!",
+                "I appreciate that! I'm here to help.",
+                "Thanks for the love!",
+                "Aw, shucks! Thanks for the compliment!"
+            ],
+            "context": ""
+        },
+        {
+            "tag": "insult",
+            "patterns": [
+                "you're dumb", "you're stupid",
+                "shut up", "idiot",
+                "you're useless", "i hate you",
+                "you suck", "you're annoying",
+                "stupid bot", "be quiet",
+                "you're terrible", "get lost",
+                "you're no good", "stop talking",
+                "you're a failure", "this is bad",
+                "worst assistant", "not helpful"
+            ],
+            "responses": [
+                "I'm sorry you feel that way. How can I improve?",
+                "I'll try to do better. What can I help with?",
+                "I'm here to help. Let me know how I can assist you.",
+                "Ouch! Let's switch to something positive—any questions?",
+                "Sorry I'm not hitting the mark. What do you need?"
+            ],
+            "context": ""
+        },
+        {
+            "tag": "smalltalk",
+            "patterns": [
+                "how are you", "what's up",
+                "how's it going", "how do you do",
+                "you good", "sup",
+                "what's new", "how's everything",
+                "are you okay", "what's good",
+                "how's it hanging", "what's the vibe",
+                "you doing alright", "what's happening",
+                "how's life", "you cool",
+                "how have you been", "what's going on"
+            ],
+            "responses": [
+                "I'm functioning optimally, thanks for asking! How about you?",
+                "All systems go here! What's new with you?",
+                "I'm doing well! How can I help you today?",
+                "Just chilling in the digital realm. You?",
+                "I'm good, thanks! What's up with you?"
+            ],
+            "context": ""
+        },
+        {
+            "tag": "fallback",
+            "patterns": [
+                "what is", "who is", "tell me about",
+                "explain", "how does", "describe",
+                "why is", "calculate", "solve",
+                "define", "what does mean",
+                "information about", "details about",
+                "can you explain", "i need information",
+                "what's the meaning of", "help me understand"
+            ],
+            "responses": [
+                "I'd be happy to look that up for you!",
+                "Let me check my knowledge base...",
+                "One moment while I research that for you",
+                "I'll find the best answer for you",
+                "Let me get that information for you"
+            ],
+            "context": ""
+        }
+    ]
+}

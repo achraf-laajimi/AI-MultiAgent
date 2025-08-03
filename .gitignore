@@ -1,0 +1,16 @@
+# Environment files
+.env
+*.env
+env/
+
+# Database & ML files
+*.db
+*.h5
+*.pkl
+
+# Reports
+*.txt
+
+# IDE & cache
+.vscode/
+.web_cache/

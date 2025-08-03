@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assisto</title>
+    <link rel="shortcut icon" href="assets/img/sophia.ico">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Bootstrap Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <link rel="stylesheet" href="assets/texllate/animate.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <section id="Oval" class="mb-4">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <div id="loader-wrapper">
+                        <div id="loader">
+                            <div id="loader1"></div>
+                        </div>
+                        <p>GRACE</p>
+                    </div>
+                    <h5 class="text-light text text-center">Ask me anything</h5>
+                    <div class="col-md-12 mt-4 pt-4">
+                        <div class="text-center">
+                            <div id="textInput" class="d-flex">
+                                <input type="text" class="input-field" name="chatbox" id="chatbox"
+                                    placeholder="type here ... ">
+                                <button id="MicBtn" class="glow-on-hover"><i class="bi bi-mic"></i></button>
+                                <button id="ChatBtn" class="glow-on-hover" data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i
+                                        class="bi bi-chat-dots"></i></button>
+                                <div class="nav-container">
+                                    <div class="nav_bar glow-on-hover" id="mainCircleBtn">
+                                        <div class="bar1"></div>
+                                        <div class="bar2"></div>
+                                        <div class="bar3_h"></div>
+                                        <div class="bar4"></div>
+                                    </div>
+                                    <div class="sub-buttons">
+                                        <button id="option1Btn" class="circle-btn sub-circle">
+                                        <i class="bi bi-file-earmark-text"></i>
+                                        </button>
+                                        <button id="option2Btn" class="circle-btn sub-circle">
+                                        <i class="bi bi-file-image"></i>
+                                        </button>
+                                    </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+                </div>
+            </div>
+        </section>
+        <section id="SiriWave" class="mb-4" hidden>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+                            <div>
+                                <h5 class="text-start text-light mb-4 siri-message" style="font-size: 26px;">
+                                    Hello, I am G.R.A.C.E</h5>
+                                <div id="siri-container"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="ResumeAnalyzer" class="mb-4" hidden>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn btn-outline-light btn-back btn-resume" onclick="hideResumeAnalyzer()" 
+                                style="position: absolute; top: 20px; right: 20px;">
+                            <i class="bi bi-arrow-left"></i> Back to Main
+                        </button>
+                        <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+                            <div class="text-light" style="width: 100%; max-width: 800px;">
+                                <h2 class="text-center mb-4">AI Resume Analyzer 📝</h2>
+                                
+                                <div id="resume-form-container">
+                                    <form id="resume-analyzer-form">
+                                        <div class="mb-3">
+                                            <label for="resume-upload" class="form-label">Upload your Resume/CV (PDF)</label>
+                                            <input class="form-control" type="file" id="resume-upload" accept=".pdf" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="job-description" class="form-label">Job Description</label>
+                                            <textarea class="form-control" id="job-description" rows="5" placeholder="Paste the job description here..." required></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary w-100">Analyze Resume</button>
+                                    </form>
+                                </div>
+                                
+                                <div id="resume-results-container" style="display: none;">
+                                    <div class="card text-dark mb-4">
+                                        <div class="card-body">
+                                            <h4 class="card-title">Analysis Results</h4>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="p-3 border rounded">
+                                                        <h6>ATS Similarity Score</h6>
+                                                        <h3 id="ats-score">0.00</h3>
+                                                        <small class="text-muted">How closely your resume matches the job description</small>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="p-3 border rounded">
+                                                        <h6>AI Evaluation Score</h6>
+                                                        <h3 id="ai-score">0.00</h3>
+                                                        <small class="text-muted">Comprehensive analysis by our AI</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="mt-4">
+                                                <h5>Detailed Analysis:</h5>
+                                                <div id="ai-report" class="p-3 bg-dark text-light rounded" style="max-height: 300px; overflow-y: auto;"></div>
+                                            </div>
+                                            <button id="new-analysis" class="btn btn-outline-light mt-3 ms-2">
+                                                <i class="bi bi-arrow-repeat"></i> New Analysis
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div id="resume-loading" class="text-center mt-4" style="display: none;">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Image generator -->
+        <section id="AdSnapStudio" class="mb-4" hidden>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn btn-outline-light btn-back btn-image"
+                                style="position: absolute; top: 20px; right: 20px;">
+                            <i class="bi bi-arrow-left"></i> Back to Main
+                        </button>
+                        <div class="text-light" style="min-height: 100vh; padding: 20px;">
+                            <h2 class="text-center mb-4">Image Generator 🎨</h2>
+                            
+                            <!-- Main Navigation Tabs -->
+                            <ul class="nav nav-tabs mb-4" id="adSnapTabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="generate-tab" data-bs-toggle="tab" data-bs-target="#generate" type="button" role="tab">Generate Image</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="lifestyle-tab" data-bs-toggle="tab" data-bs-target="#lifestyle" type="button" role="tab">Lifestyle Shot</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="fill-tab" data-bs-toggle="tab" data-bs-target="#fill" type="button" role="tab">Generative Fill</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="erase-tab" data-bs-toggle="tab" data-bs-target="#erase" type="button" role="tab">Erase Elements</button>
+                                </li>
+                            </ul>
+                            
+                            <!-- Tab Content -->
+                            <div class="tab-content" id="adSnapTabContent">
+                                <!-- Generate Image Tab -->
+                                <div class="tab-pane fade show active" id="generate" role="tabpanel">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="mb-3">
+                                                <label for="prompt-input" class="form-label">Enter your prompt</label>
+                                                <textarea class="form-control" id="prompt-input" rows="3" placeholder="Describe the image you want to generate..."></textarea>
+                                            </div>
+                                            
+                                            <div id="enhanced-prompt-container" class="mb-3" style="display: none;">
+                                                <label class="form-label">Enhanced Prompt:</label>
+                                                <div class="p-3 bg-dark text-light rounded" id="enhanced-prompt"></div>
+                                                <button id="use-enhanced-prompt" class="btn btn-sm btn-outline-primary mt-2">Use Enhanced Prompt</button>
+                                            </div>
+                                            
+                                            <button id="enhance-prompt-btn" class="btn btn-outline-primary mb-3">✨ Enhance Prompt</button>
+                                            
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <label for="num-images" class="form-label">Number of images</label>
+                                                    <input type="range" class="form-range" min="1" max="4" value="1" id="num-images">
+                                                    <div class="text-center" id="num-images-value">1</div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="aspect-ratio" class="form-label">Aspect ratio</label>
+                                                    <select class="form-select" id="aspect-ratio">
+                                                        <option value="1:1">1:1 (Square)</option>
+                                                        <option value="16:9">16:9 (Wide)</option>
+                                                        <option value="9:16">9:16 (Tall)</option>
+                                                        <option value="4:3">4:3</option>
+                                                        <option value="3:4">3:4</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="mb-3">
+                                                <label for="image-style" class="form-label">Image Style</label>
+                                                <select class="form-select" id="image-style">
+                                                    <option value="Realistic">Realistic</option>
+                                                    <option value="Artistic">Artistic</option>
+                                                    <option value="Cartoon">Cartoon</option>
+                                                    <option value="Sketch">Sketch</option>
+                                                    <option value="Watercolor">Watercolor</option>
+                                                    <option value="Oil Painting">Oil Painting</option>
+                                                    <option value="Digital Art">Digital Art</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="form-check form-switch mb-3">
+                                                <input class="form-check-input" type="checkbox" id="enhance-quality" checked>
+                                                <label class="form-check-label" for="enhance-quality">Enhance image quality</label>
+                                            </div>
+                                            
+                                            <button id="generate-images-btn" class="btn btn-primary w-100">🎨 Generate Images</button>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div id="generated-images-container" class="text-center">
+                                                <div class="placeholder-image">
+                                                    <i class="bi bi-image" style="font-size: 5rem; color: #4db8ff;"></i>
+                                                    <p class="mt-2" style="padding-left: 0.5rem;">Your generated images will appear here</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Lifestyle Shot Tab -->
+                                <div class="tab-pane fade" id="lifestyle" role="tabpanel">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="product-upload" class="form-label">Upload Product Image</label>
+                                                <input class="form-control" type="file" id="product-upload" accept="image/png, image/jpeg">
+                                            </div>
+                                            
+                                            <div id="product-preview-container" style="display: none;">
+                                                <img id="product-preview" class="img-fluid mb-3 rounded" style="max-height: 300px;">
+                                            </div>
+                                            
+                                            <div class="mb-3">
+                                                <label for="edit-option" class="form-label">Select Edit Option</label>
+                                                <select class="form-select" id="edit-option">
+                                                    <option value="packshot">Create Packshot</option>
+                                                    <option value="shadow">Add Shadow</option>
+                                                    <option value="lifestyle">Lifestyle Shot</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <!-- Packshot Options -->
+                                            <div id="packshot-options" class="edit-options">
+                                                <div class="row mb-3">
+                                                    <div class="col-md-6">
+                                                        <label for="bg-color" class="form-label">Background Color</label>
+                                                        <input type="color" class="form-control form-control-color" id="bg-color" value="#ffffff">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="sku" class="form-label">SKU (optional)</label>
+                                                        <input type="text" class="form-control" id="sku" placeholder="Product SKU">
+                                                    </div>
+                                                </div>
+                                                <div class="form-check form-switch mb-3">
+                                                    <input class="form-check-input" type="checkbox" id="force-rmbg">
+                                                    <label class="form-check-label" for="force-rmbg">Force Background Removal</label>
+                                                </div>
+                                                <button id="create-packshot-btn" class="btn btn-primary w-100">Create Packshot</button>
+                                            </div>
+                                            
+                                            <!-- Shadow Options -->
+                                            <div id="shadow-options" class="edit-options" style="display: none;">
+                                                <div class="row mb-3">
+                                                    <div class="col-md-6">
+                                                        <label for="shadow-type" class="form-label">Shadow Type</label>
+                                                        <select class="form-select" id="shadow-type">
+                                                            <option value="natural">Natural</option>
+                                                            <option value="drop">Drop</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="shadow-color" class="form-label">Shadow Color</label>
+                                                        <input type="color" class="form-control form-control-color" id="shadow-color" value="#000000">
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-md-6">
+                                                        <label for="offset-x" class="form-label">X Offset</label>
+                                                        <input type="range" class="form-range" min="-50" max="50" value="0" id="offset-x">
+                                                        <div class="text-center" id="offset-x-value">0</div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="offset-y" class="form-label">Y Offset</label>
+                                                        <input type="range" class="form-range" min="-50" max="50" value="15" id="offset-y">
+                                                        <div class="text-center" id="offset-y-value">15</div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-md-6">
+                                                        <label for="shadow-intensity" class="form-label">Shadow Intensity</label>
+                                                        <input type="range" class="form-range" min="0" max="100" value="60" id="shadow-intensity">
+                                                        <div class="text-center" id="shadow-intensity-value">60</div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="shadow-blur" class="form-label">Shadow Blur</label>
+                                                        <input type="range" class="form-range" min="0" max="50" value="15" id="shadow-blur">
+                                                        <div class="text-center" id="shadow-blur-value">15</div>
+                                                    </div>
+                                                </div>
+                                                <button id="add-shadow-btn" class="btn btn-primary w-100">Add Shadow</button>
+                                            </div>
+                                            
+                                            <!-- Lifestyle Shot Options -->
+                                            <div id="lifestyle-options" class="edit-options" style="display: none;">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Shot Type</label>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="shot-type" id="text-prompt" value="text" checked>
+                                                        <label class="form-check-label" for="text-prompt">Text Prompt</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="shot-type" id="reference-image" value="image">
+                                                        <label class="form-check-label" for="reference-image">Reference Image</label>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div id="text-prompt-options">
+                                                    <div class="mb-3">
+                                                        <label for="scene-description" class="form-label">Describe the environment</label>
+                                                        <textarea class="form-control" id="scene-description" rows="3"></textarea>
+                                                    </div>
+                                                    
+                                                    <div class="mb-3">
+                                                        <label for="placement-type" class="form-label">Placement Type</label>
+                                                        <select class="form-select" id="placement-type">
+                                                            <option value="original">Original</option>
+                                                            <option value="automatic">Automatic</option>
+                                                        </select>
+                                                    </div>
+                                                    
+                                                    <div class="mb-3 form-check">
+                                                        <input type="checkbox" class="form-check-input" id="fast-mode" checked>
+                                                        <label class="form-check-label" for="fast-mode">Fast Mode</label>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div id="reference-image-options" style="display: none;">
+                                                    <div class="mb-3">
+                                                        <label for="reference-upload" class="form-label">Upload Reference Image</label>
+                                                        <input class="form-control" type="file" id="reference-upload" accept="image/png, image/jpeg">
+                                                    </div>
+                                                </div>
+                                                
+                                                <button id="generate-lifestyle-btn" class="btn btn-primary w-100">Generate Lifestyle Shot</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div id="lifestyle-result-container" class="text-center">
+                                                <div class="placeholder-image">
+                                                    <i class="bi bi-image" style="font-size: 5rem; color: #4db8ff;"></i>
+                                                    <p class="mt-2" style="padding-left: 0.5rem;">Your edited product will appear here</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Generative Fill Tab -->
+                                <div class="tab-pane fade" id="fill" role="tabpanel">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="fill-upload" class="form-label">Upload Base Image</label>
+                                                <input class="form-control" type="file" id="fill-upload" accept="image/png, image/jpeg">
+                                            </div>
+                                            
+                                            <div id="fill-preview-container" style="display: none;">
+                                                <div class="canvas-container">
+                                                    <canvas id="fill-canvas" class="img-fluid mb-3 rounded"></canvas>
+                                                </div>
+                                                
+                                                <div class="mb-3">
+                                                    <label for="brush-size" class="form-label">Brush Size</label>
+                                                    <input type="range" class="form-range" min="1" max="50" value="20" id="brush-size">
+                                                </div>
+                                                
+                                                <div class="mb-3">
+                                                    <label for="fill-prompt" class="form-label">Describe what to generate in the masked area</label>
+                                                    <textarea class="form-control" id="fill-prompt" rows="3"></textarea>
+                                                </div>
+                                                
+                                                <div class="mb-3">
+                                                    <label for="negative-prompt" class="form-label">Describe what to avoid (optional)</label>
+                                                    <textarea class="form-control" id="negative-prompt" rows="2"></textarea>
+                                                </div>
+                                                
+                                                <div class="row mb-3">
+                                                    <div class="col-md-6">
+                                                        <label for="num-variations" class="form-label">Number of variations</label>
+                                                        <input type="range" class="form-range" min="1" max="4" value="1" id="num-variations">
+                                                        <div class="text-center" id="num-variations-value">1</div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="seed-value" class="form-label">Seed (optional)</label>
+                                                        <input type="number" class="form-control" id="seed-value" min="0" value="0">
+                                                    </div>
+                                                </div>
+                                                
+                                                <button id="generate-fill-btn" class="btn btn-primary w-100">🎨 Generate</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div id="fill-result-container" class="text-center">
+                                                <div class="placeholder-image">
+                                                    <i class="bi bi-image" style="font-size: 5rem; color: #4db8ff;"></i>
+                                                    <p class="mt-2" style="padding-left: 0.5rem;">Your generated fill will appear here</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Erase Elements Tab -->
+                                <div class="tab-pane fade" id="erase" role="tabpanel">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="erase-upload" class="form-label">Upload Image</label>
+                                                <input class="form-control" type="file" id="erase-upload" accept="image/png, image/jpeg">
+                                            </div>
+                                            
+                                            <div id="erase-preview-container" style="display: none;">
+                                                <div class="canvas-container">
+                                                    <canvas id="erase-canvas" class="img-fluid mb-3 rounded"></canvas>
+                                                </div>
+                                                
+                                                <div class="mb-3">
+                                                    <label for="erase-brush-size" class="form-label">Brush Size</label>
+                                                    <input type="range" class="form-range" min="1" max="50" value="20" id="erase-brush-size">
+                                                </div>
+                                                
+                                                <button id="erase-btn" class="btn btn-primary w-100">🎨 Erase Selected Area</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div id="erase-result-container" class="text-center">
+                                                <div class="placeholder-image">
+                                                    <i class="bi bi-image" style="font-size: 5rem; color: #4db8ff;"></i>
+                                                    <p class="mt-2" style="padding-left: 0.5rem;">Your edited image will appear here</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!--Jquery  -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="main.js"></script>
+
+    <!-- Texllate js -->
+    <script src="assets/texllate/jquery.fittext.js"></script>
+    <script src="assets/texllate/jquery.lettering.js"></script>
+    <script src="http://jschr.github.io/textillate/jquery.textillate.js"></script>
+    <script type="text/javascript" src="/eel.js"></script>
+
+    <!-- SiriWave -->
+    <script src="https://unpkg.com/siriwave/dist/siriwave.umd.min.js"></script>
+    <script src="./controller.js"></script>
+
+</body>
+</html>
