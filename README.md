@@ -31,4 +31,6 @@ A comprehensive AI-driven platform integrating image processing, voice interacti
 - Real-time feedback 🔄  
 - One-click image downloads ⬇️  
 
-
+## 🎥 Video Demonstrations
+Explore our features:  
+[View Release Videos](https://github.com/achraf-laajimi/AI-MultiAgent/releases/tag/v1.0)
